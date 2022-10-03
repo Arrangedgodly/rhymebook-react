@@ -1,0 +1,29 @@
+.rhymes-title {
+  text-align: center;
+  color: #fff;
+  margin: 1vh auto .5vh auto;
+}
+
+.rhymes {
+  display: grid;
+  width: 95%;
+  grid-template-columns: repeat(6, 1fr);
+  margin: .2vh auto;
+  padding: 3vh;
+}
+
+.rhymes-hidden {
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .rhymes {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .rhymes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
