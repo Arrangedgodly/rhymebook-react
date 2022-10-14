@@ -2,6 +2,7 @@ import React from "react";
 import Form from "./Form";
 import Results from "./Results";
 import { getLastWord } from "../utils/constants";
+import { Api } from "./Api";
 
 function Main() {
   const [theme, setTheme] = React.useState('');
@@ -9,6 +10,7 @@ function Main() {
   const [word, setWord] = React.useState('');
   const [engine, setEngine] = React.useState('topic');
   const [query, setQuery] = React.useState(50);
+  const [rhymes, setRhymes] = React.useState([]);
 
   function handleThemeChange(e) {
     setTheme(e.target.value);
@@ -21,6 +23,7 @@ function Main() {
   function handleWordChange(e) {
     if (e.key === ' ' || e.key === 'Enter') {
       handleWord();
+      handleRhymes();
     }
   }
 
@@ -40,6 +43,13 @@ function Main() {
     setEngine('ml');
   }
 
+  const handleRhymes = () => {
+    setRhymes(api.getRhyme(word, engine, theme, query));
+    console.log(rhymes);
+  }
+
+  const api = new Api();
+
   return (
     <div className="page">
       <Form 
@@ -56,10 +66,7 @@ function Main() {
         handleSpecific={handleSpecific}
       />
       <Results 
-        theme={theme}
-        word={word}
-        engine={engine}
-        query={query}
+        rhymes={rhymes}
       />
     </div>
   );
