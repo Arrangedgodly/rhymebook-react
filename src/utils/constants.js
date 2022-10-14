@@ -33,4 +33,8 @@ const resultsSection = [
   }
 ];
 
+export function getLastWord(str) {
+  return str.split(' ').pop();
+}
+
 export {resultsSection};

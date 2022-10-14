@@ -1,21 +1,7 @@
 import React from "react";
+import { getLastWord } from "../utils/constants";
 
-function Form() {
-  const [theme, setTheme] = React.useState('');
-  const [body, setBody] = React.useState('');
-  const [query, setQuery] = React.useState(150);
-
-  function handleThemeChange(e) {
-    setTheme(e.target.value);
-  }
-
-  function handleBodyChange(e) {
-    setBody(e.target.value);
-  }
-
-  function handleQueryChange(e) {
-    setQuery(e.target.value);
-  }
+function Form({ theme, body, word, engine, query, handleThemeChange, handleBodyChange, handleWordChange, handleQueryChange, handleBroad, handleSpecific }) {
 
   return (
     <form className="form note-form">
@@ -37,6 +23,7 @@ function Form() {
               className="form-input form-input-body"
               value={body}
               onChange={handleBodyChange}
+              onKeyDown={handleWordChange}
             >
             </textarea>
           </label>
@@ -49,8 +36,8 @@ function Form() {
                   name="engine"
                   id="broad"
                   type="radio"
-                  value="topic"
                   className="form-input-alt"
+                  onClick={handleBroad}
                 />
               </label>
               <p className="form-input-desc">
@@ -64,8 +51,8 @@ function Form() {
                   name="engine"
                   id="specific"
                   type="radio"
-                  value="ml"
                   className="form-input-alt"
+                  onClick={handleSpecific}
                 />
               </label>
               <p className="form-input-desc">

@@ -1,14 +1,28 @@
 import { resultsSection } from '../utils/constants';
 import Rhymes from './Rhymes';
+import Rhyme from './Rhyme';
+import { Api } from './Api';
 
-function Results() {
+function Results({ theme, word, engine, query }) {
+  const api = new Api();
   return (
     <div className="results">
       <Rhymes 
         title={resultsSection[0].title}
         suffix={resultsSection[0].suffix}
         key={resultsSection[0].suffix}
-      />
+      >
+        {
+          api.getRhyme(word, engine, theme, query)
+            .then(res => 
+              res.map(item => (
+              <Rhyme
+                word={item.word}
+                key={item.word}
+              />
+            )))
+        }
+      </Rhymes>
       <Rhymes 
         title={resultsSection[1].title}
         suffix={resultsSection[1].suffix}

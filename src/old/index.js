@@ -2,10 +2,6 @@ import { Api } from "./components/Api";
 import { Rhyme } from "./components/Rhyme";
 import "./index.css";
 
-function getLastWord(str) {
-  return str.split(' ').pop();
-}
-
 const api = new Api({url: "https://api.datamuse.com/words"});
 
 const themeInput = document.querySelector(".form-input-title");
