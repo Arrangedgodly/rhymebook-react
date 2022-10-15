@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Form from "./Form";
 import Results from "./Results";
 import { getLastWord } from "../utils/constants";
@@ -11,6 +11,13 @@ function Main() {
   const [engine, setEngine] = React.useState('topic');
   const [query, setQuery] = React.useState(50);
   const [rhymes, setRhymes] = React.useState([]);
+  const [soundAlikes, setSoundAlikes] = React.useState([]);
+  const [relatedAdjectives, setRelatedAdjectives] = React.useState([]);
+  const [relatedNouns, setRelatedNouns] = React.useState([]);
+  const [relatedWords, setRelatedWords] = React.useState([]);
+  const [synonyms, setSynonyms] = React.useState([]);
+  const [antonyms, setAntonyms] = React.useState([]);
+  const [followers, setFollowers] = React.useState([]);
 
   function handleThemeChange(e) {
     setTheme(e.target.value);
@@ -23,7 +30,6 @@ function Main() {
   function handleWordChange(e) {
     if (e.key === ' ' || e.key === 'Enter') {
       handleWord();
-      handleRhymes();
     }
   }
 
@@ -43,9 +49,68 @@ function Main() {
     setEngine('ml');
   }
 
+  useEffect(() => {
+    handleRhymes()
+  }, [word])
+
+  useEffect(() => {
+    handleSoundAlikes()
+  }, [word])
+
+  useEffect(() => {
+    handleRelatedAdjectives()
+  }, [word])
+
+  useEffect(() => {
+    handleRelatedNouns()
+  }, [word])
+
+  useEffect(() => {
+    handleRelatedWords()
+  }, [word])
+
+  useEffect(() => {
+    handleSynonyms()
+  }, [word])
+
+  useEffect(() => {
+    handleAntonyms()
+  }, [word])
+
+  useEffect(() => {
+    handleFollowers()
+  }, [word])
+
   const handleRhymes = () => {
-    setRhymes(api.getRhyme(word, engine, theme, query));
-    console.log(rhymes);
+    api.getRhyme(word, engine, theme, query).then(res => {setRhymes(res)});
+  }
+
+  const handleSoundAlikes = () => {
+    api.getSoundAlike(word, engine, theme, query).then(res => {setSoundAlikes(res)});
+  }
+
+  const handleRelatedAdjectives = () => {
+    api.getRelatedAdjectives(word, engine, theme, query).then(res => {setRelatedAdjectives(res)});
+  }
+  
+  const handleRelatedNouns = () => {
+    api.getRelatedNouns(word, engine, theme, query).then(res => {setRelatedNouns(res)});
+  }
+
+  const handleRelatedWords = () => {
+    api.getRelatedWords(word, engine, theme, query).then(res => {setRelatedWords(res)});
+  }
+
+  const handleSynonyms = () => {
+    api.getSynonyms(word, engine, theme, query).then(res => {setSynonyms(res)});
+  }
+
+  const handleAntonyms = () => {
+    api.getAntonyms(word, engine, theme, query).then(res => {setAntonyms(res)});
+  }
+
+  const handleFollowers = () => {
+    api.getFrequentFollowers(word, engine, theme, query).then(res => {setFollowers(res)});
   }
 
   const api = new Api();
@@ -67,6 +132,13 @@ function Main() {
       />
       <Results 
         rhymes={rhymes}
+        soundAlikes={soundAlikes}
+        relatedAdjectives={relatedAdjectives}
+        relatedNouns={relatedNouns}
+        relatedWords={relatedWords}
+        synonyms={synonyms}
+        antonyms={antonyms}
+        followers={followers}
       />
     </div>
   );

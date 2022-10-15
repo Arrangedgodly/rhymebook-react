@@ -8,12 +8,12 @@ const resultsSection = [
     suffix: 'sound'
   },
   {
-    title: 'Suggested Related Nouns',
-    suffix: 'rel-noun'
-  },
-  {
     title: 'Suggested Related Adjectives',
     suffix: 'rel-adj'
+  },
+  {
+    title: 'Suggested Related Nouns',
+    suffix: 'rel-noun'
   },
   {
     title: 'Suggested Synonyms',
