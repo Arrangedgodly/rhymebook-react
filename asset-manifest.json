@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rhymebook-react/static/css/main.395347b6.css",
+    "main.js": "/rhymebook-react/static/js/main.3a3eacfd.js",
+    "static/js/787.f530923a.chunk.js": "/rhymebook-react/static/js/787.f530923a.chunk.js",
+    "index.html": "/rhymebook-react/index.html",
+    "main.395347b6.css.map": "/rhymebook-react/static/css/main.395347b6.css.map",
+    "main.3a3eacfd.js.map": "/rhymebook-react/static/js/main.3a3eacfd.js.map",
+    "787.f530923a.chunk.js.map": "/rhymebook-react/static/js/787.f530923a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.395347b6.css",
+    "static/js/main.3a3eacfd.js"
+  ]
+}
