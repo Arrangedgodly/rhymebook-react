@@ -38,6 +38,7 @@ function Form({ theme, body, word, engine, query, handleThemeChange, handleBodyC
                   type="radio"
                   className="form-input-alt"
                   onClick={handleBroad}
+                  defaultChecked
                 />
               </label>
               <p className="form-input-desc">
