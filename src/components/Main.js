@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Form from "./Form";
 import Results from "./Results";
 import { getLastWord } from "../utils/constants";
 import { Api } from "./Api";
 
 function Main() {
-  const [theme, setTheme] = React.useState('');
-  const [body, setBody] = React.useState('');
-  const [word, setWord] = React.useState('');
-  const [engine, setEngine] = React.useState('topic');
-  const [query, setQuery] = React.useState(50);
-  const [rhymes, setRhymes] = React.useState([]);
-  const [soundAlikes, setSoundAlikes] = React.useState([]);
-  const [relatedAdjectives, setRelatedAdjectives] = React.useState([]);
-  const [relatedNouns, setRelatedNouns] = React.useState([]);
-  const [relatedWords, setRelatedWords] = React.useState([]);
-  const [synonyms, setSynonyms] = React.useState([]);
-  const [antonyms, setAntonyms] = React.useState([]);
-  const [followers, setFollowers] = React.useState([]);
+  const [theme, setTheme] = useState('');
+  const [body, setBody] = useState('');
+  const [word, setWord] = useState('');
+  const [engine, setEngine] = useState('topic');
+  const [query, setQuery] = useState(50);
+  const [rhymes, setRhymes] = useState([]);
+  const [soundAlikes, setSoundAlikes] = useState([]);
+  const [relatedAdjectives, setRelatedAdjectives] = useState([]);
+  const [relatedNouns, setRelatedNouns] = useState([]);
+  const [relatedWords, setRelatedWords] = useState([]);
+  const [synonyms, setSynonyms] = useState([]);
+  const [antonyms, setAntonyms] = useState([]);
+  const [followers, setFollowers] = useState([]);
 
   function handleThemeChange(e) {
     setTheme(e.target.value);

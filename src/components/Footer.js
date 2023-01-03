@@ -1,6 +1,6 @@
-function Footer() {
+function Footer({ loggedIn }) {
   return (
-    <footer className="footer">
+    <footer className={loggedIn ? "footer" : "footer footer-alt"}>
       <h3 className="footer-text">Created by Grady Wasil</h3>
     </footer>
   );
