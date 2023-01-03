@@ -1,4 +1,5 @@
 import logo from '../images/rhymebook_logo.webp';
+import UserDropdown from './UserDropdown';
 
 function Header({ loggedIn, currentUser }) {
   return (
@@ -9,17 +10,9 @@ function Header({ loggedIn, currentUser }) {
       />
       <h1 className="header-title">Rhymebook: The API Powered Notes App</h1>
       {loggedIn && (
-        <div className='header-user'>
-          <img
-            className='header-user_image'
-            src={currentUser.avatar}
-          />
-          <p
-            className='header-user_name'
-          >
-            {currentUser.name}
-          </p>
-        </div>
+        <UserDropdown 
+          currentUser={currentUser}
+        />
       )}
     </header>
   );
