@@ -49,38 +49,6 @@ function Main() {
     setEngine('ml');
   }
 
-  useEffect(() => {
-    handleRhymes()
-  }, [word])
-
-  useEffect(() => {
-    handleSoundAlikes()
-  }, [word])
-
-  useEffect(() => {
-    handleRelatedAdjectives()
-  }, [word])
-
-  useEffect(() => {
-    handleRelatedNouns()
-  }, [word])
-
-  useEffect(() => {
-    handleRelatedWords()
-  }, [word])
-
-  useEffect(() => {
-    handleSynonyms()
-  }, [word])
-
-  useEffect(() => {
-    handleAntonyms()
-  }, [word])
-
-  useEffect(() => {
-    handleFollowers()
-  }, [word])
-
   const handleRhymes = () => {
     api.getRhyme(word, engine, theme, query).then(res => {setRhymes(res)});
   }
@@ -112,6 +80,38 @@ function Main() {
   const handleFollowers = () => {
     api.getFrequentFollowers(word, engine, theme, query).then(res => {setFollowers(res)});
   }
+
+  useEffect(() => {
+    handleRhymes()
+  }, [word])
+
+  useEffect(() => {
+    handleSoundAlikes()
+  }, [word])
+
+  useEffect(() => {
+    handleRelatedAdjectives()
+  }, [word])
+
+  useEffect(() => {
+    handleRelatedNouns()
+  }, [word])
+
+  useEffect(() => {
+    handleRelatedWords()
+  }, [word])
+
+  useEffect(() => {
+    handleSynonyms()
+  }, [word])
+
+  useEffect(() => {
+    handleAntonyms()
+  }, [word])
+
+  useEffect(() => {
+    handleFollowers()
+  }, [word])
 
   const api = new Api();
 
