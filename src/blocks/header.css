@@ -12,3 +12,19 @@
   color: #fff;
   text-shadow: 2px 2px 0px #006466;
 }
+
+.header-user {
+  display: flex;
+  align-items: center;
+  margin-left: 10vw;
+}
+
+.header-user_image {
+  height: 6vh;
+}
+
+.header-user_name {
+  color: #fff;
+  font-size: 1.5vw;
+  margin: 1vw;
+}
